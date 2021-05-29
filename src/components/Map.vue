@@ -67,7 +67,7 @@
       <label for="checkbox">Block</label>
       <br />
       <label for="checkbox">Starting Tile</label>
-      <select v-model="selected" @change="setSelected($event)">
+      <select v-model="selected" @change="setSelected()">
         <option disabled value="">Please select one</option>
         <option>None</option>
         <option>Attacker</option>
@@ -218,7 +218,7 @@ export default {
     setBlocked(event) {
       window.blocked = event.target.checked;
     },
-    setSelected(event) {
+    setSelected() {
       window.startingTile = this.selected;
     },
   },
