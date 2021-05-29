@@ -257,6 +257,7 @@ input {
   border: solid 1px black;
   width: 5px;
   height: 5px;
+  user-select: none;
 }
 .selected {
   border: solid 3px rgb(235, 17, 188);

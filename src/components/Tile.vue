@@ -70,6 +70,10 @@ export default {
   justify-content: center;
   border: solid 1px;
   color: white;
+  user-select: none;
+}
+.square:hover {
+  filter: brightness(150%);
 }
 .base {
   background-color: #583e23;
