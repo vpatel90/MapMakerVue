@@ -29,7 +29,9 @@ export default {
   },
   computed: {
     displayText() {
-      return `${this.tile.elevation}${this.tile.blocked ? "B" : ""}`;
+      return `${this.tile.elevation}${this.tile.blocked ? "B" : ""}${
+        this.tile.attackerStartingTile ? "|A" : ""
+      }${this.tile.defenderStartingTile ? "|D" : ""}`;
     },
   },
   methods: {
@@ -42,6 +44,18 @@ export default {
       }
       if (window.blocked !== undefined) {
         this.tile.blocked = window.blocked;
+      }
+      if (window.startingTile === "Attacker") {
+        this.tile.defenderStartingTile = false;
+        this.tile.attackerStartingTile = true;
+      }
+      if (window.startingTile === "Defender") {
+        this.tile.attackerStartingTile = false;
+        this.tile.defenderStartingTile = true;
+      }
+      if (window.startingTile === "None") {
+        this.tile.attackerStartingTile = false;
+        this.tile.defenderStartingTile = false;
       }
     },
   },

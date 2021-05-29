@@ -65,6 +65,14 @@
       <br />
       <input type="checkbox" id="checkbox" @change="setBlocked($event)" />
       <label for="checkbox">Block</label>
+      <br />
+      <label for="checkbox">Starting Tile</label>
+      <select v-model="selected" @change="setSelected($event)">
+        <option disabled value="">Please select one</option>
+        <option>None</option>
+        <option>Attacker</option>
+        <option>Defender</option>
+      </select>
       <h1>Map</h1>
       <Row
         v-for="row in rows"
@@ -99,6 +107,7 @@ export default {
       rows: [],
       splitter: "|||||",
       savedMaps: [],
+      selected: "None",
     };
   },
   mounted() {
@@ -208,6 +217,9 @@ export default {
     },
     setBlocked(event) {
       window.blocked = event.target.checked;
+    },
+    setSelected(event) {
+      window.startingTile = this.selected;
     },
   },
 };
